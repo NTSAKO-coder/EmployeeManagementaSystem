@@ -6,6 +6,6 @@ def get_db_connection():
         user="postgres",  # Replace with your PostgreSQL username
         password="Ntsako@2000",  # Replace with your PostgreSQL password
         host="localhost",
-        port="5433"
+        port="5432"
     )
     return conn
