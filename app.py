@@ -1,22 +1,21 @@
 from flask import Flask, render_template, request, redirect, url_for
 from database import get_db_connection
 
-app = Flask(__name__) # type: ignore
+app = Flask(__name__) 
 
-# Home Route
 @app.route('/')
 def index():
-    return render_template('index.html') # type: ignore
+    return render_template('index.html') 
 
-# Add Employee Route
-@app.route('/add', methods=['GET', 'POST'])
+
+@app.route('/add', methods=['GET', 'POST']) 
 def add_employee():
-    if request.method == 'POST': # type: ignore
-        first_name = request.form['first_name'] # type: ignore
-        last_name = request.form['last_name'] # type: ignore
-        email = request.form['email'] # type: ignore
-        phone = request.form['phone'] # type: ignore
-        department = request.form['department'] # type: ignore
+    if request.method == 'POST': 
+        first_name = request.form['first_name'] 
+        last_name = request.form['last_name'] 
+        email = request.form['email'] 
+        phone = request.form['phone'] 
+        department = request.form['department'] 
 
         conn = get_db_connection()
         cur = conn.cursor()
@@ -31,7 +30,7 @@ def add_employee():
         return redirect(url_for('view_employees'))
     return render_template('add_employee.html')
 
-# View Employees Route
+
 @app.route('/view')
 def view_employees():
     conn = get_db_connection()
@@ -55,7 +54,6 @@ def delete_employee(id):
 
 
 
-# Update Employee Route
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update_employee(id):
     conn = get_db_connection()
@@ -85,11 +83,7 @@ def update_employee(id):
     return render_template('update_employee.html', employee=employee)
 
 
-# Run the App
 if __name__ == '__main__':
     app.run(debug=True)
 
-# Run the App
-if __name__ == '__main__':
-    app.run(debug=True)
 
