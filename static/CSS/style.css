@@ -165,5 +165,10 @@ table tr:hover {
     text-align: center;
     width: 150px;
 }
-
+#Department{
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+}
 
